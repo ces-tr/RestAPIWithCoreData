@@ -1,0 +1,647 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28D16EB9FB20BDFE97779B93 /* libPods-RestSoapWebServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 150DC64F9037843A1F473BCE /* libPods-RestSoapWebServices.a */; };
+		2F7F69FE02F497B974EBD0F9 /* ROADGeneratedAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DB9429E2FB80A4E0ED96F3 /* ROADGeneratedAttribute.m */; };
+		5239E5141FA9145B00A503F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E5131FA9145B00A503F1 /* AppDelegate.m */; };
+		5239E5171FA9145B00A503F1 /* RSUsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E5161FA9145B00A503F1 /* RSUsersTableViewController.m */; };
+		5239E51A1FA9145B00A503F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5239E5181FA9145B00A503F1 /* Main.storyboard */; };
+		5239E51D1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5239E51B1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodeld */; };
+		5239E51F1FA9145B00A503F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5239E51E1FA9145B00A503F1 /* Assets.xcassets */; };
+		5239E5221FA9145B00A503F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5239E5201FA9145B00A503F1 /* LaunchScreen.storyboard */; };
+		5239E5251FA9145B00A503F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E5241FA9145B00A503F1 /* main.m */; };
+		5239E52F1FA9145B00A503F1 /* RestSoapWebServicesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E52E1FA9145B00A503F1 /* RestSoapWebServicesTests.m */; };
+		523C915B1FAA35A300A68515 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239E5561FA986E700A503F1 /* CoreData.framework */; };
+		523C91681FABBDA100A68515 /* B4AppClassAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 523C91671FABBDA100A68515 /* B4AppClassAttribute.m */; };
+		525ACA3D1FAA275700B0A2EE /* SDCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525ACA381FAA275600B0A2EE /* SDCoreDataController.m */; };
+		525ACA3E1FAA275700B0A2EE /* RSBFAppApiSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 525ACA391FAA275600B0A2EE /* RSBFAppApiSessionManager.m */; };
+		525ACA3F1FAA275700B0A2EE /* SDSyncEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 525ACA3C1FAA275600B0A2EE /* SDSyncEngine.m */; };
+		52DB51B61FAC138E00747F7F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB51B51FAC138D00747F7F /* User.m */; };
+		52DB51BA1FAC152900747F7F /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB51B91FAC152900747F7F /* Utils.m */; };
+		52DB51BD1FACD4DD00747F7F /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB51BC1FACD4DD00747F7F /* JSONResponseSerializerWithData.m */; };
+		52DB51C11FACDF7200747F7F /* RSUsersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB51C01FACDF7200747F7F /* RSUsersTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5239E52B1FA9145B00A503F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5239E5071FA9145B00A503F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5239E50E1FA9145B00A503F1;
+			remoteInfo = RestSoapWebServices;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		150DC64F9037843A1F473BCE /* libPods-RestSoapWebServices.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RestSoapWebServices.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A37DCD99AE9CBDD6D6A1C59 /* Pods-RestSoapWebServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestSoapWebServices.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestSoapWebServices/Pods-RestSoapWebServices.release.xcconfig"; sourceTree = "<group>"; };
+		502E136F19A56BA00C2E1CC4 /* Pods-RestSoapWebServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestSoapWebServices.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestSoapWebServices/Pods-RestSoapWebServices.debug.xcconfig"; sourceTree = "<group>"; };
+		5239E50F1FA9145B00A503F1 /* RestSoapWebServices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestSoapWebServices.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5239E5121FA9145B00A503F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5239E5131FA9145B00A503F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5239E5151FA9145B00A503F1 /* RSUsersTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUsersTableViewController.h; sourceTree = "<group>"; };
+		5239E5161FA9145B00A503F1 /* RSUsersTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSUsersTableViewController.m; sourceTree = "<group>"; };
+		5239E5191FA9145B00A503F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5239E51C1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestSoapWebServices.xcdatamodel; sourceTree = "<group>"; };
+		5239E51E1FA9145B00A503F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5239E5211FA9145B00A503F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5239E5231FA9145B00A503F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5239E5241FA9145B00A503F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5239E52A1FA9145B00A503F1 /* RestSoapWebServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestSoapWebServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5239E52E1FA9145B00A503F1 /* RestSoapWebServicesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestSoapWebServicesTests.m; sourceTree = "<group>"; };
+		5239E5301FA9145B00A503F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5239E5561FA986E700A503F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		523C91661FABBDA100A68515 /* B4AppClassAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = B4AppClassAttribute.h; sourceTree = "<group>"; };
+		523C91671FABBDA100A68515 /* B4AppClassAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = B4AppClassAttribute.m; sourceTree = "<group>"; };
+		525ACA371FAA275600B0A2EE /* RSBFAppApiSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBFAppApiSessionManager.h; sourceTree = "<group>"; };
+		525ACA381FAA275600B0A2EE /* SDCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCoreDataController.m; sourceTree = "<group>"; };
+		525ACA391FAA275600B0A2EE /* RSBFAppApiSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBFAppApiSessionManager.m; sourceTree = "<group>"; };
+		525ACA3A1FAA275600B0A2EE /* SDCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCoreDataController.h; sourceTree = "<group>"; };
+		525ACA3B1FAA275600B0A2EE /* SDSyncEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSyncEngine.h; sourceTree = "<group>"; };
+		525ACA3C1FAA275600B0A2EE /* SDSyncEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSyncEngine.m; sourceTree = "<group>"; };
+		52DB51B41FAC138D00747F7F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		52DB51B51FAC138D00747F7F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		52DB51B81FAC152900747F7F /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		52DB51B91FAC152900747F7F /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		52DB51BB1FACD4DD00747F7F /* JSONResponseSerializerWithData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONResponseSerializerWithData.h; sourceTree = "<group>"; };
+		52DB51BC1FACD4DD00747F7F /* JSONResponseSerializerWithData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONResponseSerializerWithData.m; sourceTree = "<group>"; };
+		52DB51BF1FACDF7200747F7F /* RSUsersTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUsersTableViewCell.h; sourceTree = "<group>"; };
+		52DB51C01FACDF7200747F7F /* RSUsersTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSUsersTableViewCell.m; sourceTree = "<group>"; };
+		61DB9429E2FB80A4E0ED96F3 /* ROADGeneratedAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ROADGeneratedAttribute.m; path = RestSoapWebServices/ROADGeneratedAttributes/ROADGeneratedAttribute.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5239E50C1FA9145B00A503F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				523C915B1FAA35A300A68515 /* CoreData.framework in Frameworks */,
+				28D16EB9FB20BDFE97779B93 /* libPods-RestSoapWebServices.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5239E5271FA9145B00A503F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5239E5061FA9145B00A503F1 = {
+			isa = PBXGroup;
+			children = (
+				5239E5111FA9145B00A503F1 /* RestSoapWebServices */,
+				5239E52D1FA9145B00A503F1 /* RestSoapWebServicesTests */,
+				5239E5101FA9145B00A503F1 /* Products */,
+				5239E5541FA982A900A503F1 /* Frameworks */,
+				F88CA691794CA3C27763D48E /* Pods */,
+				61DB9429E2FB80A4E0ED96F3 /* ROADGeneratedAttribute.m */,
+			);
+			sourceTree = "<group>";
+		};
+		5239E5101FA9145B00A503F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5239E50F1FA9145B00A503F1 /* RestSoapWebServices.app */,
+				5239E52A1FA9145B00A503F1 /* RestSoapWebServicesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5239E5111FA9145B00A503F1 /* RestSoapWebServices */ = {
+			isa = PBXGroup;
+			children = (
+				52DB51BE1FACDF4900747F7F /* TableViewCell */,
+				52DB51B71FAC14F000747F7F /* Utils */,
+				523C91651FABBCE200A68515 /* Attributes */,
+				523C91611FAAB89D00A68515 /* Models */,
+				525ACA371FAA275600B0A2EE /* RSBFAppApiSessionManager.h */,
+				525ACA391FAA275600B0A2EE /* RSBFAppApiSessionManager.m */,
+				525ACA3A1FAA275600B0A2EE /* SDCoreDataController.h */,
+				525ACA381FAA275600B0A2EE /* SDCoreDataController.m */,
+				525ACA3B1FAA275600B0A2EE /* SDSyncEngine.h */,
+				525ACA3C1FAA275600B0A2EE /* SDSyncEngine.m */,
+				5239E5121FA9145B00A503F1 /* AppDelegate.h */,
+				5239E5131FA9145B00A503F1 /* AppDelegate.m */,
+				5239E5151FA9145B00A503F1 /* RSUsersTableViewController.h */,
+				5239E5161FA9145B00A503F1 /* RSUsersTableViewController.m */,
+				5239E5181FA9145B00A503F1 /* Main.storyboard */,
+				5239E51E1FA9145B00A503F1 /* Assets.xcassets */,
+				5239E5201FA9145B00A503F1 /* LaunchScreen.storyboard */,
+				5239E5231FA9145B00A503F1 /* Info.plist */,
+				5239E5241FA9145B00A503F1 /* main.m */,
+				5239E51B1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodeld */,
+			);
+			path = RestSoapWebServices;
+			sourceTree = "<group>";
+		};
+		5239E52D1FA9145B00A503F1 /* RestSoapWebServicesTests */ = {
+			isa = PBXGroup;
+			children = (
+				5239E52E1FA9145B00A503F1 /* RestSoapWebServicesTests.m */,
+				5239E5301FA9145B00A503F1 /* Info.plist */,
+			);
+			path = RestSoapWebServicesTests;
+			sourceTree = "<group>";
+		};
+		5239E5541FA982A900A503F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5239E5561FA986E700A503F1 /* CoreData.framework */,
+				150DC64F9037843A1F473BCE /* libPods-RestSoapWebServices.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		523C91611FAAB89D00A68515 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52DB51B41FAC138D00747F7F /* User.h */,
+				52DB51B51FAC138D00747F7F /* User.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		523C91651FABBCE200A68515 /* Attributes */ = {
+			isa = PBXGroup;
+			children = (
+				523C91661FABBDA100A68515 /* B4AppClassAttribute.h */,
+				523C91671FABBDA100A68515 /* B4AppClassAttribute.m */,
+			);
+			path = Attributes;
+			sourceTree = "<group>";
+		};
+		52DB51B71FAC14F000747F7F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				52DB51B81FAC152900747F7F /* Utils.h */,
+				52DB51B91FAC152900747F7F /* Utils.m */,
+				52DB51BB1FACD4DD00747F7F /* JSONResponseSerializerWithData.h */,
+				52DB51BC1FACD4DD00747F7F /* JSONResponseSerializerWithData.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		52DB51BE1FACDF4900747F7F /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				52DB51BF1FACDF7200747F7F /* RSUsersTableViewCell.h */,
+				52DB51C01FACDF7200747F7F /* RSUsersTableViewCell.m */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		F88CA691794CA3C27763D48E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				502E136F19A56BA00C2E1CC4 /* Pods-RestSoapWebServices.debug.xcconfig */,
+				3A37DCD99AE9CBDD6D6A1C59 /* Pods-RestSoapWebServices.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5239E50E1FA9145B00A503F1 /* RestSoapWebServices */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5239E5331FA9145B00A503F1 /* Build configuration list for PBXNativeTarget "RestSoapWebServices" */;
+			buildPhases = (
+				D2B196E77441692D64C4FA53 /* [CP] Check Pods Manifest.lock */,
+				9C7BB6102B6CA1326C53F3CD /* libObjCAttr - generate attributes */,
+				5239E50B1FA9145B00A503F1 /* Sources */,
+				5239E50C1FA9145B00A503F1 /* Frameworks */,
+				5239E50D1FA9145B00A503F1 /* Resources */,
+				2327764EA2A92911CAF0843E /* [CP] Embed Pods Frameworks */,
+				71A896EE2A27225AD59B2F52 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RestSoapWebServices;
+			productName = RestSoapWebServices;
+			productReference = 5239E50F1FA9145B00A503F1 /* RestSoapWebServices.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5239E5291FA9145B00A503F1 /* RestSoapWebServicesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5239E5361FA9145B00A503F1 /* Build configuration list for PBXNativeTarget "RestSoapWebServicesTests" */;
+			buildPhases = (
+				5239E5261FA9145B00A503F1 /* Sources */,
+				5239E5271FA9145B00A503F1 /* Frameworks */,
+				5239E5281FA9145B00A503F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5239E52C1FA9145B00A503F1 /* PBXTargetDependency */,
+			);
+			name = RestSoapWebServicesTests;
+			productName = RestSoapWebServicesTests;
+			productReference = 5239E52A1FA9145B00A503F1 /* RestSoapWebServicesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5239E5071FA9145B00A503F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Cesar TR";
+				TargetAttributes = {
+					5239E50E1FA9145B00A503F1 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					5239E5291FA9145B00A503F1 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5239E50E1FA9145B00A503F1;
+					};
+				};
+			};
+			buildConfigurationList = 5239E50A1FA9145B00A503F1 /* Build configuration list for PBXProject "RestSoapWebServices" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5239E5061FA9145B00A503F1;
+			productRefGroup = 5239E5101FA9145B00A503F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5239E50E1FA9145B00A503F1 /* RestSoapWebServices */,
+				5239E5291FA9145B00A503F1 /* RestSoapWebServicesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5239E50D1FA9145B00A503F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5239E5221FA9145B00A503F1 /* LaunchScreen.storyboard in Resources */,
+				5239E51F1FA9145B00A503F1 /* Assets.xcassets in Resources */,
+				5239E51A1FA9145B00A503F1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5239E5281FA9145B00A503F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2327764EA2A92911CAF0843E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestSoapWebServices/Pods-RestSoapWebServices-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71A896EE2A27225AD59B2F52 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestSoapWebServices/Pods-RestSoapWebServices-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C7BB6102B6CA1326C53F3CD /* libObjCAttr - generate attributes */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "libObjCAttr - generate attributes";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/libObjCAttr/tools/binaries/ROADAttributesCodeGenerator\" -src=\"${SRCROOT}/${TARGET_NAME}\" -src=\"${PODS_ROOT}\" -dst=\"${SRCROOT}/${TARGET_NAME}/ROADGeneratedAttributes/\"";
+		};
+		D2B196E77441692D64C4FA53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RestSoapWebServices-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5239E50B1FA9145B00A503F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DB51B61FAC138E00747F7F /* User.m in Sources */,
+				52DB51BA1FAC152900747F7F /* Utils.m in Sources */,
+				5239E5171FA9145B00A503F1 /* RSUsersTableViewController.m in Sources */,
+				5239E51D1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodeld in Sources */,
+				5239E5251FA9145B00A503F1 /* main.m in Sources */,
+				525ACA3F1FAA275700B0A2EE /* SDSyncEngine.m in Sources */,
+				52DB51C11FACDF7200747F7F /* RSUsersTableViewCell.m in Sources */,
+				523C91681FABBDA100A68515 /* B4AppClassAttribute.m in Sources */,
+				525ACA3D1FAA275700B0A2EE /* SDCoreDataController.m in Sources */,
+				52DB51BD1FACD4DD00747F7F /* JSONResponseSerializerWithData.m in Sources */,
+				5239E5141FA9145B00A503F1 /* AppDelegate.m in Sources */,
+				525ACA3E1FAA275700B0A2EE /* RSBFAppApiSessionManager.m in Sources */,
+				2F7F69FE02F497B974EBD0F9 /* ROADGeneratedAttribute.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5239E5261FA9145B00A503F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5239E52F1FA9145B00A503F1 /* RestSoapWebServicesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5239E52C1FA9145B00A503F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5239E50E1FA9145B00A503F1 /* RestSoapWebServices */;
+			targetProxy = 5239E52B1FA9145B00A503F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5239E5181FA9145B00A503F1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5239E5191FA9145B00A503F1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5239E5201FA9145B00A503F1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5239E5211FA9145B00A503F1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5239E5311FA9145B00A503F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5239E5321FA9145B00A503F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5239E5341FA9145B00A503F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 502E136F19A56BA00C2E1CC4 /* Pods-RestSoapWebServices.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JHN34TFZBQ;
+				INFOPLIST_FILE = RestSoapWebServices/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CesTR.RestSoapWebServices;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5239E5351FA9145B00A503F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A37DCD99AE9CBDD6D6A1C59 /* Pods-RestSoapWebServices.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JHN34TFZBQ;
+				INFOPLIST_FILE = RestSoapWebServices/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CesTR.RestSoapWebServices;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5239E5371FA9145B00A503F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RestSoapWebServicesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CesTR.RestSoapWebServicesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestSoapWebServices.app/RestSoapWebServices";
+			};
+			name = Debug;
+		};
+		5239E5381FA9145B00A503F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RestSoapWebServicesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CesTR.RestSoapWebServicesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RestSoapWebServices.app/RestSoapWebServices";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5239E50A1FA9145B00A503F1 /* Build configuration list for PBXProject "RestSoapWebServices" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5239E5311FA9145B00A503F1 /* Debug */,
+				5239E5321FA9145B00A503F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5239E5331FA9145B00A503F1 /* Build configuration list for PBXNativeTarget "RestSoapWebServices" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5239E5341FA9145B00A503F1 /* Debug */,
+				5239E5351FA9145B00A503F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5239E5361FA9145B00A503F1 /* Build configuration list for PBXNativeTarget "RestSoapWebServicesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5239E5371FA9145B00A503F1 /* Debug */,
+				5239E5381FA9145B00A503F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5239E51B1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5239E51C1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodel */,
+			);
+			currentVersion = 5239E51C1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodel */;
+			path = RestSoapWebServices.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5239E5071FA9145B00A503F1 /* Project object */;
+}
