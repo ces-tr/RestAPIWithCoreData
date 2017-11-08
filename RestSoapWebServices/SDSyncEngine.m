@@ -10,6 +10,7 @@
 #import "RSBFAppApiSessionManager.h"
 #import "B4AppClassAttribute.h"
 #import "Utils.h"
+#import "ConnectionManager.h"
 
 
 NSString * const kSDSyncEngineInitialCompleteKey = @"SDSyncEngineInitialSyncCompleted";
@@ -17,7 +18,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
 
 @interface SDSyncEngine ()
 
-@property (nonatomic, strong) NSMutableArray *registeredClassesToSync;
+@property (nonatomic, strong) NSMutableArray *registeredModelsToSync;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
@@ -26,7 +27,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
 
 @synthesize syncInProgress = _syncInProgress;
 
-@synthesize registeredClassesToSync = _registeredClassesToSync;
+@synthesize registeredModelsToSync = _registeredModelsToSync;
 @synthesize dateFormatter = _dateFormatter;
 
 + (SDSyncEngine *)sharedEngine {
@@ -40,13 +41,13 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
 }
 
 - (void)registerNSManagedObjectClassToSync:(Class)aClass {
-    if (!self.registeredClassesToSync) {
-        self.registeredClassesToSync = [NSMutableArray array];
+    if (!self.registeredModelsToSync) {
+        self.registeredModelsToSync = [NSMutableArray array];
     }
     
     if ([aClass isSubclassOfClass:[NSManagedObject class]]) {        
-        if (![self.registeredClassesToSync containsObject:NSStringFromClass(aClass)]) {
-            [self.registeredClassesToSync addObject:NSStringFromClass(aClass)];
+        if (![self.registeredModelsToSync containsObject:NSStringFromClass(aClass)]) {
+            [self.registeredModelsToSync addObject:NSStringFromClass(aClass)];
             
         } else {
             NSLog(@"Unable to register %@ as it is already registered", NSStringFromClass(aClass));
@@ -61,8 +62,9 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
         [self willChangeValueForKey:@"syncInProgress"];
         _syncInProgress = YES;
         [self didChangeValueForKey:@"syncInProgress"];
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            [self downloadDataForRegisteredObjects:YES];
+            [self downloadDataForRegisteredModels:YES];
         });
     }
 }
@@ -117,12 +119,12 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     return date;
 }
 
-- (void)downloadDataForRegisteredObjects:(BOOL)useUpdatedAtDate {
+- (void)downloadDataForRegisteredModels:(BOOL)useUpdatedAtDate {
 //    NSMutableArray *operations = [NSMutableArray array];
     
     dispatch_group_t tasks = dispatch_group_create();
     
-    for (NSString *className in self.registeredClassesToSync) {
+    for (NSString *className in self.registeredModelsToSync) {
         
         NSDate *mostRecentUpdatedDate = nil;
         dispatch_group_enter(tasks);
@@ -165,7 +167,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
                 NSLog(@"Reply JSON: %@", responseObject);
                 
                 if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                    [self writeJSONResponse:responseObject toDiskForClassWithName:className];
+                    [self writeAPIResponseToJSONFile:responseObject WithClassName:className];
                 }
             } else {
                 NSLog(@"Error: %@, %@, %@", error, response, responseObject);
@@ -179,7 +181,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     dispatch_group_notify(tasks, dispatch_get_main_queue(), ^{
         NSLog(@"Done");
         if (useUpdatedAtDate) {
-            [self processJSONDataRecordsIntoCoreData];
+            [self processJSONFileDataRecordsIntoCoreData];
         }
         
     });
@@ -197,22 +199,25 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
 //    }];
 }
 
-- (void)processJSONDataRecordsIntoCoreData {
+
+#pragma File Utils
+
+- (void)processJSONFileDataRecordsIntoCoreData {
     NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
     
-    for (NSString *className in self.registeredClassesToSync) {
+    for (NSString *className in self.registeredModelsToSync) {
         
         if (![self initialSyncComplete]) { // import all downloaded data to Core Data for initial sync
-            NSDictionary *JSONDictionary = [self JSONDictionaryForClassWithName:className];
+            NSDictionary *JSONDictionary = [self getJSONDataFromFileWithClassName:className];
             NSArray *records = [JSONDictionary objectForKey:@"results"];
             for (NSDictionary *record in records) {
-                [self newManagedObjectWithClassName:className forRecord:record];
+                [self insertNewManagedObjectWithClassName:className forRecord:record];
             }
         } else {
-            NSArray *downloadedRecords = [self JSONDataRecordsForClass:className sortedByKey:@"objectId"];
+            NSArray *downloadedRecords = [self getDataRowsForClass:className sortedByKey:@"objectId"];
             
             if ([downloadedRecords lastObject]) {
-                NSArray *storedRecords = [self managedObjectsForClass:className sortedByKey:@"objectId" usingArrayOfIds:[downloadedRecords valueForKey:@"objectId"] inArrayOfIds:YES];
+                NSArray *storedRecords = [self getManagedObjectsForClass:className sortedByKey:@"objectId" usingArrayOfIds:[downloadedRecords valueForKey:@"objectId"] inArrayOfIds:YES];
                 int currentIndex = 0;
                 
                 for (NSDictionary *record in downloadedRecords) {
@@ -224,7 +229,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
                     if ([[storedManagedObject valueForKey:@"objectId"] isEqualToString:[record valueForKey:@"objectId"]]) {
                         [self updateManagedObject:[storedRecords objectAtIndex:currentIndex] withRecord:record];
                     } else {
-                        [self newManagedObjectWithClassName:className forRecord:record];
+                        [self insertNewManagedObjectWithClassName:className forRecord:record];
                     }
                     currentIndex++;
                 }
@@ -238,14 +243,15 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
             }
         }];
         
-        [self deleteJSONDataRecordsForClassWithName:className];
+        [self deleteJSONFileDataRecordsForClassWithName:className];
         [self executeSyncCompletedOperations];
     }
     
 //    [self downloadDataForRegisteredObjects:NO];
 }
 
-- (void)newManagedObjectWithClassName:(NSString *)className forRecord:(NSDictionary *)record {
+//Creates New Managed Object(Registry) in Core Data
+- (void)insertNewManagedObjectWithClassName:(NSString *)className forRecord:(NSDictionary *)record {
     
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:className inManagedObjectContext:[[SDCoreDataController sharedInstance] backgroundManagedObjectContext]];
     
@@ -266,6 +272,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     if ([key isEqualToString:@"createdAt"] || [key isEqualToString:@"updatedAt"]) {
         NSDate *date = [self dateUsingStringFromAPI:value];
         [managedObject setValue:date forKey:key];
+        
     } else if ([value isKindOfClass:[NSDictionary class]]) {
         if ([value objectForKey:@"__type"]) {
             NSString *dataType = [value objectForKey:@"__type"];
@@ -273,15 +280,28 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
                 NSString *dateString = [value objectForKey:@"iso"];
                 NSDate *date = [self dateUsingStringFromAPI:dateString];
                 [managedObject setValue:date forKey:key];
-            } else if ([dataType isEqualToString:@"File"]) {
+                
+            }
+            else if ([dataType isEqualToString:@"Pointer"]) {
+                NSString *objectIdOwner = [value objectForKey:@"objectId"];
+                [managedObject setValue:objectIdOwner forKey:key];
+            }
+            else if ([dataType isEqualToString:@"File"]) {
+                
                 NSString *urlString = [value objectForKey:@"url"];
-                NSURL *url = [NSURL URLWithString:urlString];
-                NSURLRequest *request = [NSURLRequest requestWithURL:url];
-                NSURLResponse *response = nil;
-                NSError *error = nil;
-                NSData *dataResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-                [managedObject setValue:dataResponse forKey:key];
-            } else {
+//                NSURL *url = [NSURL URLWithString:urlString];
+//                NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//                NSURLResponse *response = nil;
+//                NSError *error = nil;
+                [ConnectionManager downLoadFile:urlString withDelegate:self completionBlock:^(BOOL succeeded, NSURL *location, NSString *errorMsg) {
+                    
+                    [managedObject setValue:location.absoluteString forKey:key];
+                }];
+                
+//                NSData *dataResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//                [managedObject setValue:dataResponse forKey:key];
+            }
+            else {
                 NSLog(@"Unknown Data Type Received");
                 [managedObject setValue:nil forKey:key];
             }
@@ -291,7 +311,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     }
 }
 
-- (NSArray *)managedObjectsForClass:(NSString *)className withSyncStatus:(SDObjectSyncStatus)syncStatus {
+- (NSArray *)getManagedObjectsForClass:(NSString *)className withSyncStatus:(SDObjectSyncStatus)syncStatus {
     __block NSArray *results = nil;
     NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:className];
@@ -305,7 +325,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     return results;    
 }
 
-- (NSArray *)managedObjectsForClass:(NSString *)className sortedByKey:(NSString *)key usingArrayOfIds:(NSArray *)idArray inArrayOfIds:(BOOL)inIds {
+- (NSArray *)getManagedObjectsForClass:(NSString *)className sortedByKey:(NSString *)key usingArrayOfIds:(NSArray *)idArray inArrayOfIds:(BOOL)inIds {
     __block NSArray *results = nil;
     NSManagedObjectContext *managedObjectContext = [[SDCoreDataController sharedInstance] backgroundManagedObjectContext];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:className];
@@ -327,6 +347,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     return results;
 }
 
+#pragma NSDate Poperties Utils
 - (void)initializeDateFormatter {
     if (!self.dateFormatter) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
@@ -361,7 +382,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     return [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-- (NSURL *)JSONDataRecordsDirectory{
+- (NSURL *)JSONDataRecordsDirectory {
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *url = [NSURL URLWithString:@"JSONRecords/" relativeToURL:[self applicationCacheDirectory]];
@@ -373,7 +394,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     return url;
 }
 
-- (void)writeJSONResponse:(id)response toDiskForClassWithName:(NSString *)className {
+- (void)writeAPIResponseToJSONFile:(id)response WithClassName:(NSString *)className {
     NSURL *fileURL = [NSURL URLWithString:className relativeToURL:[self JSONDataRecordsDirectory]];
     
     if (![(NSDictionary *)response writeToFile:[fileURL path] atomically:YES]) {
@@ -381,6 +402,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
         // remove NSNulls and try again...
         NSArray *records = [response objectForKey:@"results"];
         NSMutableArray *nullFreeRecords = [NSMutableArray array];
+        
         for (NSDictionary *record in records) {
             NSMutableDictionary *nullFreeRecord = [NSMutableDictionary dictionaryWithDictionary:record];
             [record enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -399,7 +421,7 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     }
 }
 
-- (void)deleteJSONDataRecordsForClassWithName:(NSString *)className {
+- (void)deleteJSONFileDataRecordsForClassWithName:(NSString *)className {
     NSURL *url = [NSURL URLWithString:className relativeToURL:[self JSONDataRecordsDirectory]];
     NSError *error = nil;
     BOOL deleted = [[NSFileManager defaultManager] removeItemAtURL:url error:&error];
@@ -408,13 +430,13 @@ NSString * const kSDSyncEngineSyncCompletedNotificationName = @"SDSyncEngineSync
     }
 }
 
-- (NSDictionary *)JSONDictionaryForClassWithName:(NSString *)className {
+- (NSDictionary *)getJSONDataFromFileWithClassName:(NSString *)className {
     NSURL *fileURL = [NSURL URLWithString:className relativeToURL:[self JSONDataRecordsDirectory]]; 
     return [NSDictionary dictionaryWithContentsOfURL:fileURL];
 }
 
-- (NSArray *)JSONDataRecordsForClass:(NSString *)className sortedByKey:(NSString *)key {
-    NSDictionary *JSONDictionary = [self JSONDictionaryForClassWithName:className];
+- (NSArray *)getDataRowsForClass:(NSString *)className sortedByKey:(NSString *)key {
+    NSDictionary *JSONDictionary = [self getJSONDataFromFileWithClassName:className];
     NSArray *records = [JSONDictionary objectForKey:@"results"];
     return [records sortedArrayUsingDescriptors:[NSArray arrayWithObject:
                                                  [NSSortDescriptor sortDescriptorWithKey:key ascending:YES]]];

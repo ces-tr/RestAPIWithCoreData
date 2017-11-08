@@ -10,7 +10,7 @@
 
 @interface RSUsersTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *UserData;
+@property (nonatomic, strong) NSArray *UserDataArray;
 @property (nonatomic, strong) NSString *entityName;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *SyncBtn;
 

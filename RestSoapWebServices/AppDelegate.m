@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "SDSyncEngine.h"
 #import "User.h"
+#import "UserProfile.h"
+
 
 @interface AppDelegate ()
 
@@ -21,7 +23,7 @@
     // Override point for customization after application launch.
     
     [[SDSyncEngine sharedEngine] registerNSManagedObjectClassToSync:[User class]];
-//    [[SDSyncEngine sharedEngine] registerNSManagedObjectClassToSync:[Birthday class]];
+    [[SDSyncEngine sharedEngine] registerNSManagedObjectClassToSync:[UserProfile class]];
     
    
 //    NSArray *classAttributes = [_User RF_attributesForClass];

@@ -19,9 +19,19 @@
 		5239E52F1FA9145B00A503F1 /* RestSoapWebServicesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E52E1FA9145B00A503F1 /* RestSoapWebServicesTests.m */; };
 		523C915B1FAA35A300A68515 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5239E5561FA986E700A503F1 /* CoreData.framework */; };
 		523C91681FABBDA100A68515 /* B4AppClassAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 523C91671FABBDA100A68515 /* B4AppClassAttribute.m */; };
+		5246DA1B1FAFAEA200A6B6E6 /* RSUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5246DA1A1FAFAEA200A6B6E6 /* RSUserDetailViewController.m */; };
+		5246DA1E1FAFD71900A6B6E6 /* RecognitionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 5246DA1C1FAFD71800A6B6E6 /* RecognitionCamera.m */; };
 		525ACA3D1FAA275700B0A2EE /* SDCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 525ACA381FAA275600B0A2EE /* SDCoreDataController.m */; };
 		525ACA3E1FAA275700B0A2EE /* RSBFAppApiSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 525ACA391FAA275600B0A2EE /* RSBFAppApiSessionManager.m */; };
 		525ACA3F1FAA275700B0A2EE /* SDSyncEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 525ACA3C1FAA275600B0A2EE /* SDSyncEngine.m */; };
+		529FD6851FB0D583001FA264 /* FaceSDK in Resources */ = {isa = PBXBuildFile; fileRef = 529FD6841FB0D582001FA264 /* FaceSDK */; };
+		529FD6881FB0D594001FA264 /* RecognitionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 529FD6871FB0D594001FA264 /* RecognitionViewController.mm */; };
+		529FD68E1FB0DAEE001FA264 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 529FD68D1FB0DAEE001FA264 /* libz.tbd */; };
+		529FD6911FB0E624001FA264 /* UIImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FD6901FB0E624001FA264 /* UIImageUtils.m */; };
+		529FD69E1FB21B96001FA264 /* lfsdk-static_64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 529FD69D1FB21B96001FA264 /* lfsdk-static_64.a */; };
+		52D15AFB1FB2250E00C066F3 /* ParseJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D15AFA1FB2250E00C066F3 /* ParseJson.m */; };
+		52D15AFE1FB2986600C066F3 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D15AFC1FB2986600C066F3 /* ConnectionManager.m */; };
+		52D15B011FB2BB4100C066F3 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D15B001FB2BB4100C066F3 /* UserProfile.m */; };
 		52DB51B61FAC138E00747F7F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB51B51FAC138D00747F7F /* User.m */; };
 		52DB51BA1FAC152900747F7F /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB51B91FAC152900747F7F /* Utils.m */; };
 		52DB51BD1FACD4DD00747F7F /* JSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB51BC1FACD4DD00747F7F /* JSONResponseSerializerWithData.m */; };
@@ -59,12 +69,32 @@
 		5239E5561FA986E700A503F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		523C91661FABBDA100A68515 /* B4AppClassAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = B4AppClassAttribute.h; sourceTree = "<group>"; };
 		523C91671FABBDA100A68515 /* B4AppClassAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = B4AppClassAttribute.m; sourceTree = "<group>"; };
+		5246DA191FAFAEA100A6B6E6 /* RSUserDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSUserDetailViewController.h; sourceTree = "<group>"; };
+		5246DA1A1FAFAEA200A6B6E6 /* RSUserDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSUserDetailViewController.m; sourceTree = "<group>"; };
+		5246DA1C1FAFD71800A6B6E6 /* RecognitionCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecognitionCamera.m; sourceTree = "<group>"; };
+		5246DA1D1FAFD71900A6B6E6 /* RecognitionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognitionCamera.h; sourceTree = "<group>"; };
 		525ACA371FAA275600B0A2EE /* RSBFAppApiSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBFAppApiSessionManager.h; sourceTree = "<group>"; };
 		525ACA381FAA275600B0A2EE /* SDCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCoreDataController.m; sourceTree = "<group>"; };
 		525ACA391FAA275600B0A2EE /* RSBFAppApiSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBFAppApiSessionManager.m; sourceTree = "<group>"; };
 		525ACA3A1FAA275600B0A2EE /* SDCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCoreDataController.h; sourceTree = "<group>"; };
 		525ACA3B1FAA275600B0A2EE /* SDSyncEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSyncEngine.h; sourceTree = "<group>"; };
 		525ACA3C1FAA275600B0A2EE /* SDSyncEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSyncEngine.m; sourceTree = "<group>"; };
+		529FD6841FB0D582001FA264 /* FaceSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FaceSDK; path = ../../Luxand_FaceSDK/samples/LiveRecognition/iOS/FaceSDK; sourceTree = "<group>"; };
+		529FD6861FB0D594001FA264 /* RecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecognitionViewController.h; sourceTree = "<group>"; };
+		529FD6871FB0D594001FA264 /* RecognitionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RecognitionViewController.mm; sourceTree = "<group>"; };
+		529FD6891FB0D5CE001FA264 /* libfsdk-static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libfsdk-static.a"; path = "../Luxand_FaceSDK/samples/LiveRecognition/iOS/FaceSDK/libfsdk-static.a"; sourceTree = "<group>"; };
+		529FD68A1FB0D5CE001FA264 /* libfsdk-static_64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libfsdk-static_64.a"; path = "../Luxand_FaceSDK/samples/LiveRecognition/iOS/FaceSDK/libfsdk-static_64.a"; sourceTree = "<group>"; };
+		529FD68D1FB0DAEE001FA264 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		529FD68F1FB0E624001FA264 /* UIImageUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIImageUtils.h; sourceTree = "<group>"; };
+		529FD6901FB0E624001FA264 /* UIImageUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIImageUtils.m; sourceTree = "<group>"; };
+		529FD69B1FB21B14001FA264 /* libfsdk-static_64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libfsdk-static_64.a"; path = "../Luxand_FaceSDK/samples/FacialFeatures/iOS/FacialFeatures/FaceSDK/libfsdk-static_64.a"; sourceTree = "<group>"; };
+		529FD69D1FB21B96001FA264 /* lfsdk-static_64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "lfsdk-static_64.a"; path = "../Luxand_FaceSDK/samples/FacialFeatures/iOS/FacialFeatures/FaceSDK/lfsdk-static_64.a"; sourceTree = "<group>"; };
+		52D15AF91FB2250E00C066F3 /* ParseJson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseJson.h; sourceTree = "<group>"; };
+		52D15AFA1FB2250E00C066F3 /* ParseJson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseJson.m; sourceTree = "<group>"; };
+		52D15AFC1FB2986600C066F3 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectionManager.m; path = "../../../Downloads/Parsing-REST-API-in-iOS-using-NSURLSession-master/ReusableParserCode/Network Manager/ConnectionManager.m"; sourceTree = "<group>"; };
+		52D15AFD1FB2986600C066F3 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionManager.h; path = "../../../Downloads/Parsing-REST-API-in-iOS-using-NSURLSession-master/ReusableParserCode/Network Manager/ConnectionManager.h"; sourceTree = "<group>"; };
+		52D15AFF1FB2BB4100C066F3 /* UserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		52D15B001FB2BB4100C066F3 /* UserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		52DB51B41FAC138D00747F7F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		52DB51B51FAC138D00747F7F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		52DB51B81FAC152900747F7F /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -81,8 +111,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529FD69E1FB21B96001FA264 /* lfsdk-static_64.a in Frameworks */,
 				523C915B1FAA35A300A68515 /* CoreData.framework in Frameworks */,
 				28D16EB9FB20BDFE97779B93 /* libPods-RestSoapWebServices.a in Frameworks */,
+				529FD68E1FB0DAEE001FA264 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +152,9 @@
 		5239E5111FA9145B00A503F1 /* RestSoapWebServices */ = {
 			isa = PBXGroup;
 			children = (
+				529FD6861FB0D594001FA264 /* RecognitionViewController.h */,
+				529FD6871FB0D594001FA264 /* RecognitionViewController.mm */,
+				529FD6841FB0D582001FA264 /* FaceSDK */,
 				52DB51BE1FACDF4900747F7F /* TableViewCell */,
 				52DB51B71FAC14F000747F7F /* Utils */,
 				523C91651FABBCE200A68515 /* Attributes */,
@@ -132,6 +167,10 @@
 				525ACA3C1FAA275600B0A2EE /* SDSyncEngine.m */,
 				5239E5121FA9145B00A503F1 /* AppDelegate.h */,
 				5239E5131FA9145B00A503F1 /* AppDelegate.m */,
+				5246DA1D1FAFD71900A6B6E6 /* RecognitionCamera.h */,
+				5246DA1C1FAFD71800A6B6E6 /* RecognitionCamera.m */,
+				5246DA191FAFAEA100A6B6E6 /* RSUserDetailViewController.h */,
+				5246DA1A1FAFAEA200A6B6E6 /* RSUserDetailViewController.m */,
 				5239E5151FA9145B00A503F1 /* RSUsersTableViewController.h */,
 				5239E5161FA9145B00A503F1 /* RSUsersTableViewController.m */,
 				5239E5181FA9145B00A503F1 /* Main.storyboard */,
@@ -140,6 +179,10 @@
 				5239E5231FA9145B00A503F1 /* Info.plist */,
 				5239E5241FA9145B00A503F1 /* main.m */,
 				5239E51B1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodeld */,
+				52D15AF91FB2250E00C066F3 /* ParseJson.h */,
+				52D15AFA1FB2250E00C066F3 /* ParseJson.m */,
+				52D15AFD1FB2986600C066F3 /* ConnectionManager.h */,
+				52D15AFC1FB2986600C066F3 /* ConnectionManager.m */,
 			);
 			path = RestSoapWebServices;
 			sourceTree = "<group>";
@@ -156,6 +199,11 @@
 		5239E5541FA982A900A503F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				529FD69D1FB21B96001FA264 /* lfsdk-static_64.a */,
+				529FD69B1FB21B14001FA264 /* libfsdk-static_64.a */,
+				529FD68D1FB0DAEE001FA264 /* libz.tbd */,
+				529FD68A1FB0D5CE001FA264 /* libfsdk-static_64.a */,
+				529FD6891FB0D5CE001FA264 /* libfsdk-static.a */,
 				5239E5561FA986E700A503F1 /* CoreData.framework */,
 				150DC64F9037843A1F473BCE /* libPods-RestSoapWebServices.a */,
 			);
@@ -167,6 +215,8 @@
 			children = (
 				52DB51B41FAC138D00747F7F /* User.h */,
 				52DB51B51FAC138D00747F7F /* User.m */,
+				52D15AFF1FB2BB4100C066F3 /* UserProfile.h */,
+				52D15B001FB2BB4100C066F3 /* UserProfile.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,6 +237,8 @@
 				52DB51B91FAC152900747F7F /* Utils.m */,
 				52DB51BB1FACD4DD00747F7F /* JSONResponseSerializerWithData.h */,
 				52DB51BC1FACD4DD00747F7F /* JSONResponseSerializerWithData.m */,
+				529FD68F1FB0E624001FA264 /* UIImageUtils.h */,
+				529FD6901FB0E624001FA264 /* UIImageUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -295,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529FD6851FB0D583001FA264 /* FaceSDK in Resources */,
 				5239E5221FA9145B00A503F1 /* LaunchScreen.storyboard in Resources */,
 				5239E51F1FA9145B00A503F1 /* Assets.xcassets in Resources */,
 				5239E51A1FA9145B00A503F1 /* Main.storyboard in Resources */,
@@ -381,9 +434,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				52DB51B61FAC138E00747F7F /* User.m in Sources */,
+				52D15AFE1FB2986600C066F3 /* ConnectionManager.m in Sources */,
 				52DB51BA1FAC152900747F7F /* Utils.m in Sources */,
 				5239E5171FA9145B00A503F1 /* RSUsersTableViewController.m in Sources */,
+				52D15B011FB2BB4100C066F3 /* UserProfile.m in Sources */,
 				5239E51D1FA9145B00A503F1 /* RestSoapWebServices.xcdatamodeld in Sources */,
+				529FD6881FB0D594001FA264 /* RecognitionViewController.mm in Sources */,
+				5246DA1E1FAFD71900A6B6E6 /* RecognitionCamera.m in Sources */,
 				5239E5251FA9145B00A503F1 /* main.m in Sources */,
 				525ACA3F1FAA275700B0A2EE /* SDSyncEngine.m in Sources */,
 				52DB51C11FACDF7200747F7F /* RSUsersTableViewCell.m in Sources */,
@@ -391,8 +448,11 @@
 				525ACA3D1FAA275700B0A2EE /* SDCoreDataController.m in Sources */,
 				52DB51BD1FACD4DD00747F7F /* JSONResponseSerializerWithData.m in Sources */,
 				5239E5141FA9145B00A503F1 /* AppDelegate.m in Sources */,
+				52D15AFB1FB2250E00C066F3 /* ParseJson.m in Sources */,
 				525ACA3E1FAA275700B0A2EE /* RSBFAppApiSessionManager.m in Sources */,
 				2F7F69FE02F497B974EBD0F9 /* ROADGeneratedAttribute.m in Sources */,
+				529FD6911FB0E624001FA264 /* UIImageUtils.m in Sources */,
+				5246DA1B1FAFAEA200A6B6E6 /* RSUserDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,9 +605,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JHN34TFZBQ;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/LinqToObjectiveC\"",
+					"\"${PODS_ROOT}/Headers/Public/libObjCAttr\"",
+					/Users/CesTR/Projects/Luxand_FaceSDK/samples/LiveRecognition/iOS/FaceSDK,
+				);
 				INFOPLIST_FILE = RestSoapWebServices/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/LinqToObjectiveC\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/libObjCAttr\"",
+					/Users/CesTR/Projects/Luxand_FaceSDK/samples/LiveRecognition/iOS/FaceSDK,
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = CesTR.RestSoapWebServices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -561,9 +637,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JHN34TFZBQ;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/LinqToObjectiveC\"",
+					"\"${PODS_ROOT}/Headers/Public/libObjCAttr\"",
+					/Users/CesTR/Projects/Luxand_FaceSDK/samples/LiveRecognition/iOS/FaceSDK,
+				);
 				INFOPLIST_FILE = RestSoapWebServices/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = CesTR.RestSoapWebServices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

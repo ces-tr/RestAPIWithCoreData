@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,11 +62,27 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="SyncBtn" destination="JVx-Ti-s4H" id="to0-oR-8AW"/>
+                        <segue destination="ueU-pB-VJI" kind="show" identifier="UserDetailSegue" id="JCC-2c-QF1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P20-jP-Ivc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="302" y="97"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="3sz-7o-GcD">
+            <objects>
+                <viewController id="ueU-pB-VJI" customClass="RSUserDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YPH-Uu-6NX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="a5C-4k-OJX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81e-E4-aFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="97"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9py-NS-DS4">

@@ -10,6 +10,7 @@
 #import "SDCoreDataController.h"
 #import "SDSyncEngine.h"
 #import "RSUsersTableViewCell.h"
+#import "RSUserDetailViewController.h"
 #import "User.h"
 
 @interface RSUsersTableViewController ()
@@ -38,7 +39,7 @@
         NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:self.entityName];
         [request setSortDescriptors:[NSArray arrayWithObject:
                                      [NSSortDescriptor sortDescriptorWithKey:@"username" ascending:YES]]];
-        self.UserData = [self.managedObjectContext executeFetchRequest:request error:&error];
+        self.UserDataArray = [self.managedObjectContext executeFetchRequest:request error:&error];
     }];
 }
 
@@ -63,7 +64,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-[[NSNotificationCenter defaultCenter] addObserverForName:@"SDSyncEngineSyncCompleted" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"SDSyncEngineSyncCompleted" object:nil queue:nil usingBlock:^(NSNotification *note) {
     [self loadRecordsFromCoreData];
     [self.tableView reloadData];
 }];
@@ -78,9 +79,10 @@
     return YES;
 }
 
+//Context Action
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *date = [self.UserData objectAtIndex:indexPath.row];
+        NSManagedObject *date = [self.UserDataArray objectAtIndex:indexPath.row];
         [self.managedObjectContext performBlockAndWait:^{
             [self.managedObjectContext deleteObject:date];
             NSError *error = nil;
@@ -107,7 +109,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.UserData count];
+    return [self.UserDataArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,7 +124,7 @@
             cell = [[RSUsersTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
         }
         
-        User *user = [self.UserData objectAtIndex:indexPath.row];
+        User *user = [self.UserDataArray objectAtIndex:indexPath.row];
         cell.Usernamelbl.text = user.username;
 //        cell.dateLabel.text = [self.dateFormatter stringFromDate:holiday.date];
 //        if (holiday.image != nil) {
@@ -169,6 +171,23 @@
 //    }
 //}
 
+#pragma sege Details
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"UserDetailSegue" sender:self];
+}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"UserDetailSegue"])
+    {
+         RSUserDetailViewController *dateDetailViewController = segue.destinationViewController;
+        RSUsersTableViewCell *cell = (RSUsersTableViewCell *)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        User *user = [self.UserDataArray objectAtIndex:indexPath.row];
+        dateDetailViewController.managedObjectId = user.objectID;
+    }
+}
 
 @end
